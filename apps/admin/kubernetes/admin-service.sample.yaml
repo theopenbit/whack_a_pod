@@ -18,8 +18,7 @@ metadata:
     name: admin
   name: admin
 spec:
-  type: LoadBalancer
-  loadBalancerIP: %ADMINIP%
+  type: NodePort
   ports:
     - name: "http"
       port: 80

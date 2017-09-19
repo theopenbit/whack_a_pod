@@ -15,22 +15,23 @@ BASEDIR = $(shell pwd)
 
 include Makefile.properties
 
-deploy: env
+deploy:
+#	kubectl create namespace $(PROJECT) 
 	cd "$(BASEDIR)/apps/api/kubernetes/" && $(MAKE) deploy
 	cd "$(BASEDIR)/apps/game/kubernetes/" && $(MAKE) deploy
 	cd "$(BASEDIR)/apps/admin/kubernetes/" && $(MAKE) deploy
 
-clean: env
+clean: 
 	cd "$(BASEDIR)/apps/api/kubernetes/" && $(MAKE) clean
 	cd "$(BASEDIR)/apps/game/kubernetes/" && $(MAKE) clean
 	cd "$(BASEDIR)/apps/admin/kubernetes/" && $(MAKE) clean	
 
-build: env
+build: 
 	cd "$(BASEDIR)/apps/api/kubernetes/" && $(MAKE) build
 	cd "$(BASEDIR)/apps/game/kubernetes/" && $(MAKE) build
 	cd "$(BASEDIR)/apps/admin/kubernetes/" && $(MAKE) build		
 
-config: env
+config: 
 	@cd "$(BASEDIR)/apps/api/kubernetes/" && $(MAKE) config
 	@cd "$(BASEDIR)/apps/game/kubernetes/" && $(MAKE) config
 	@cd "$(BASEDIR)/apps/admin/kubernetes/" && $(MAKE) config

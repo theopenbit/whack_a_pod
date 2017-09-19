@@ -28,7 +28,7 @@
             "spec": {
                 "containers": [
                     {
-                        "image": "gcr.io/carnivaldemos/api",
+                        "image": "theopenbit/rpi_whack_a_pod_api:latest",
                         "imagePullPolicy": "Always",
                         "name": "api",
                         "ports": [

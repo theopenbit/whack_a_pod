@@ -20,19 +20,20 @@ reset: clean.deployment app
 
 app: build deploy
 
-build: creds
-	gcloud container builds submit "$(BASEDIR)/../containers/." --tag=gcr.io/$(PROJECT)/admin
+build:
+	cd ../containers;./build.sh;cd $(BASEDIR)
+ 
 
-deploy: creds
-	kubectl apply -f "$(BASEDIR)/admin-service.yaml"
-	kubectl apply -f "$(BASEDIR)/admin-deployment.yaml"	
+deploy: 
+	kubectl -n $(PROJECT) apply -f "$(BASEDIR)/admin-service.yaml"
+	kubectl -n $(PROJECT) apply -f "$(BASEDIR)/admin-deployment.yaml"	
 
 clean: clean.deployment clean.service 
 
-clean.deployment: env
+clean.deployment: 
 	-kubectl delete -f "$(BASEDIR)/admin-deployment.yaml"
 	
-clean.service: env
+clean.service: 
 	-kubectl delete -f "$(BASEDIR)/admin-service.yaml"
 
 retry: clean build deploy

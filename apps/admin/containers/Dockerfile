@@ -11,6 +11,6 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-FROM gcr.io/google_appengine/php:latest
+FROM lojzik/rpi-php-fpm:latest
 ENV DOCUMENT_ROOT /app/web
 ADD default /app/web

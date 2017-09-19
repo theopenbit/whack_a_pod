@@ -26,7 +26,7 @@ spec:
     spec:
       containers:
       - name: "admin"
-        image: "gcr.io/%PROJECT%/admin"
+        image: "theopenbit/rpi_whack_a_pod_admin:latest"
         ports:
         - name: "http"
           containerPort: 8080

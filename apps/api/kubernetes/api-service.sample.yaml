@@ -18,8 +18,7 @@ metadata:
     name: api
   name: api
 spec:
-  type: LoadBalancer
-  loadBalancerIP: %APIIP% 
+  type: NodePort
   ports:
     - name: "http"
       port: 80
